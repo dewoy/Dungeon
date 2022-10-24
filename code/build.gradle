@@ -94,7 +94,6 @@ test {
 
 checkstyle {
     toolVersion = "10.2"
-    configFile = file("checkstyle-config/checks.xml")
     showViolations = true
 }
 
@@ -134,6 +133,7 @@ spotbugsTest {
 
 spotless {
     java {
+        targetExclude("build/generated-src/**")
         googleJavaFormat().aosp()
     }
 }
