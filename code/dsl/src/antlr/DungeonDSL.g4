@@ -12,6 +12,9 @@ TYPE_SPECIFIER
         : 'quest_config'
         ;
 
+DOUBLE_LINE : '--';
+ARROW       : '->';
+
 ID  : [_a-zA-Z][a-zA-Z0-9_]*;
 WS  : [ \t\r\n]+ -> skip;
 
@@ -31,7 +34,7 @@ BLOCK_COMMENT
 // - expression grammar
 // - proper stmt definition
 
-program : obj_def+
+program : obj_def* EOF
         //| fn_def
         //| stmt
         ;
@@ -69,11 +72,12 @@ dot_stmt
         ;
 
 dot_edge_stmt
-        : ID dot_edge_RHS dot_attr_list?
+        : ID dot_edge_RHS+ dot_attr_list?
         ;
 
 dot_edge_RHS
-        : dot_edge_op ID dot_edge_RHS?
+        //: dot_edge_op ID rhs=dot_edge_RHS?
+        : dot_edge_op ID
         ;
 
 // dot specifies the keywords as case insensitive,
@@ -95,8 +99,8 @@ dot_a_list
         ;
 
 dot_edge_op
-        : '->' #arrow_edge
-        | '--' #line_edge
+        : ARROW
+        | DOUBLE_LINE
         ;
 
 // Reference Program
