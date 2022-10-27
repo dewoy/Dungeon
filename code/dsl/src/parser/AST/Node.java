@@ -118,4 +118,3 @@ public class Node {
         return visitor.Visit(this);
     }
 }
-

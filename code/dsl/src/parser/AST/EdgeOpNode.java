@@ -17,7 +17,7 @@ public class EdgeOpNode extends Node {
 
     public EdgeOpNode(Node childNode, Type edgeOpType) {
         super(Node.Type.DotEdgeOp, new ArrayList<>());
-        assert(childNode.type == Node.Type.Arrow || childNode.type == Node.Type.DoubleLine);
+        assert (childNode.type == Node.Type.Arrow || childNode.type == Node.Type.DoubleLine);
         this.children.add(childNode);
         this.edgeOpType = edgeOpType;
     }

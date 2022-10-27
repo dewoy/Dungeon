@@ -40,7 +40,7 @@ program : obj_def* EOF
         ;
 
 obj_def : TYPE_SPECIFIER ID '{' property_def '}'
-        | ('graph'|'digraph') ID '{' dot_def '}'
+        | dot_def
         ;
 
 // TODO: make list (comma)
@@ -49,6 +49,7 @@ property_def
 
 // temporary, for testing
 stmt    : ID;
+
 /*
  * -------------------- dot related definitions --------------------
  * dot grammar: https://graphviz.org/doc/info/lang.html
@@ -58,7 +59,7 @@ stmt    : ID;
  * - don't support ports
  */
 
-dot_def : dot_stmt_list?;
+dot_def : graph_type=('graph'|'digraph') ID '{' dot_stmt_list? '}' ;
 
 dot_stmt_list
         : dot_stmt ';'? dot_stmt_list?
@@ -68,7 +69,11 @@ dot_stmt
         : dot_node_stmt
         | dot_edge_stmt
         | dot_attr_stmt
-        | ID '=' ID
+        | dot_assign_stmt
+        ;
+
+dot_assign_stmt
+        : ID '=' ID
         ;
 
 dot_edge_stmt
