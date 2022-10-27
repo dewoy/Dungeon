@@ -1,17 +1,17 @@
 package parser.AST;
 
 public interface AstVisitor<T> {
-    T Visit(Node node);
+    T visit(Node node);
 
-    T Visit(IdNode node);
+    T visit(IdNode node);
 
-    T Visit(BinaryNode node);
+    T visit(BinaryNode node);
 
-    T Visit(DotDefNode node);
+    T visit(DotDefNode node);
 
-    T Visit(EdgeRhsNode node);
+    T visit(EdgeRhsNode node);
 
-    T Visit(EdgeStmtNode node);
+    T visit(EdgeStmtNode node);
 
-    T Visit(EdgeOpNode node);
+    T visit(EdgeOpNode node);
 }

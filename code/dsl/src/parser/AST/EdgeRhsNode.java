@@ -25,7 +25,7 @@ public class EdgeRhsNode extends Node {
     }
 
     @Override
-    public <T> T Accept(AstVisitor<T> visitor) {
-        return visitor.Visit(this);
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visit(this);
     }
 }

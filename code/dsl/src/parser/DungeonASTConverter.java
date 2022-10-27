@@ -10,11 +10,11 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import parser.AST.*;
 
-public class DungeonDSLListener implements antlr.main.DungeonDSLListener {
+public class DungeonASTConverter implements antlr.main.DungeonDSLListener {
 
     Stack<parser.AST.Node> astStack;
 
-    public DungeonDSLListener() {
+    public DungeonASTConverter() {
         astStack = new Stack<>();
     }
 
@@ -84,7 +84,7 @@ public class DungeonDSLListener implements antlr.main.DungeonDSLListener {
         for (Node dotStmtList : stmtList.getChildren()) {
             for (Node dotStmt : dotStmtList.getChildren()) {
                 if (dotStmt.type == Node.Type.DotEdgeRHS
-                    && !((EdgeRhsNode) dotStmt).getEdgeOpType().equals(edgeOpType)) {
+                        && !((EdgeRhsNode) dotStmt).getEdgeOpType().equals(edgeOpType)) {
                     // TODO: sensible syntax error message
                     System.out.println("Wrong syntax");
                 }

@@ -21,7 +21,7 @@ public class DotDefNode extends Node {
     }
 
     public List<Node> getStmtNodes() {
-        return this.children.subList(dotStmtStartIdx, this.children.size() - 1);
+        return this.children.subList(dotStmtStartIdx, this.children.size());
     }
 
     public enum Type {
@@ -40,7 +40,7 @@ public class DotDefNode extends Node {
     }
 
     @Override
-    public <T> T Accept(AstVisitor<T> visitor) {
-        return visitor.Visit(this);
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visit(this);
     }
 }

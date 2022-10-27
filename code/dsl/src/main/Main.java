@@ -1,8 +1,9 @@
 package main;
 
 import antlr.main.*;
+import interpreter.dot.Interpreter;
 import org.antlr.v4.runtime.*;
-import parser.DungeonDSLListener;
+import parser.DungeonASTConverter;
 
 public class Main {
 
@@ -21,7 +22,10 @@ public class Main {
         var parser = new DungeonDSLParser(tokenStream);
         var programParseTree = parser.program();
 
-        DungeonDSLListener astConverter = new DungeonDSLListener();
+        DungeonASTConverter astConverter = new DungeonASTConverter();
         var programAST = astConverter.walk(programParseTree);
+
+        Interpreter dotInterpreter = new Interpreter();
+        programAST.accept(dotInterpreter);
     }
 }
