@@ -7,16 +7,18 @@ import parser.AST.*;
 public class Interpreter implements AstVisitor<Object> {
     // how to build graph?
     // - need nodes -> hashset, quasi symboltable
-    Dictionary<String, GraphNode> graphNodes = new Hashtable<>();
+    //Dictionary<String, GraphNode> graphNodes = new Hashtable<>();
+    Dictionary<String, graph.Node<String>> graphNodes = new Hashtable<>();
+    Dictionary<graph.Node<String>, Integer> childConnections = new Hashtable<>();
 
     // - need edges (between two nodes)
     //      -> hashset with string-concat of Names with edge_op as key
     Dictionary<String, GraphEdge> graphEdges = new Hashtable<>();
 
     @Override
-    public Object visit(Node node) {
+    public Object visit(parser.AST.Node node) {
         // traverse down..
-        for (Node child : node.getChildren()) {
+        for (parser.AST.Node child : node.getChildren()) {
             child.accept(this);
         }
         return null;
@@ -27,7 +29,9 @@ public class Interpreter implements AstVisitor<Object> {
         String name = node.getName();
         // lookup and create, if not present previously
         if (graphNodes.get(name) == null) {
-            graphNodes.put(name, new GraphNode(name));
+            var graphNode = new graph.Node<>(name);
+            graphNodes.put(name, graphNode);
+            //graphNodes.put(name, new GraphNode(name));
         }
 
         // return Dot-Node
@@ -39,6 +43,8 @@ public class Interpreter implements AstVisitor<Object> {
         return null;
     }
 
+    // TODO:
+    // - add calls to graph.Node.connect
     @Override
     public Object visit(DotDefNode node) {
         this.graphEdges = new Hashtable<>();
@@ -46,7 +52,7 @@ public class Interpreter implements AstVisitor<Object> {
 
         String name = node.getGraphId();
 
-        for (Node edgeStmt : node.getStmtNodes()) {
+        for (parser.AST.Node edgeStmt : node.getStmtNodes()) {
             edgeStmt.accept(this);
         }
 
@@ -71,26 +77,7 @@ public class Interpreter implements AstVisitor<Object> {
     public Object visit(EdgeStmtNode node) {
         // TODO: add handling of edge-attributes
 
-        // node will contain all edge definitions
-        GraphNode lhsDotNode = (GraphNode) node.getLhsId().accept(this);
-        GraphNode rhsDotNode = null;
 
-        for (Node edge : node.getRhsStmts()) {
-            assert (edge.type.equals(Node.Type.DotEdgeRHS));
-
-            EdgeRhsNode edgeRhs = (EdgeRhsNode) edge;
-            rhsDotNode = (GraphNode) edgeRhs.getIdNode().accept(this);
-
-            GraphEdge.Type edgeType =
-                    edgeRhs.getEdgeOpType().equals(EdgeOpNode.Type.arrow)
-                            ? GraphEdge.Type.directed
-                            : GraphEdge.Type.undirected;
-
-            GraphEdge graphEdge = new GraphEdge(edgeType, lhsDotNode, rhsDotNode);
-            graphEdges.put(graphEdge.getName(), graphEdge);
-
-            lhsDotNode = rhsDotNode;
-        }
 
         return null;
     }
