@@ -1,6 +1,7 @@
 package main;
 
 import antlr.main.*;
+import interpreter.dot.Interpreter;
 import org.antlr.v4.runtime.*;
 import parser.DungeonASTConverter;
 
@@ -23,5 +24,8 @@ public class Main {
 
         DungeonASTConverter astConverter = new DungeonASTConverter();
         var programAST = astConverter.walk(programParseTree);
+
+        Interpreter dotInterpreter = new Interpreter();
+        programAST.accept(dotInterpreter);
     }
 }
