@@ -11,7 +11,7 @@ public class Node<T extends Object> {
 
     public boolean connect(Node other, EdgeDirection direction, boolean skipLoop) {
         if (neighbours[direction.value] == null) {
-            if (skipLoop || other.connect(this, EdgeDirection.getOppsit(direction), true)) {
+            if (skipLoop || other.connect(this, EdgeDirection.getOpposite(direction), true)) {
                 neighbours[direction.value] = other;
                 return true;
             }

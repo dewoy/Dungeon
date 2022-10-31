@@ -12,7 +12,7 @@ public enum EdgeDirection {
         this.value = value;
     }
 
-    public static EdgeDirection getOppsit(EdgeDirection direction) {
+    public static EdgeDirection getOpposite(EdgeDirection direction) {
         return switch (direction) {
             case UP -> DOWN;
             case DOWN -> UP;
