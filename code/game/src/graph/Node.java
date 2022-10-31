@@ -27,8 +27,17 @@ public class Node<T extends Object> {
         this.value = value;
     }
 
+    public boolean hasValue() {
+        return this.value != null;
+    }
+
     public Node getNeighbour(EdgeDirection direction) {
         return neighbours[direction.value];
+    }
+
+    public boolean hasNeighbourInDirection(EdgeDirection direction) {
+        var neighbour = neighbours[direction.value];
+        return neighbour != null && neighbour.hasValue();
     }
 
     public Node[] getNeighbours() {
