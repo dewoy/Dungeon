@@ -14,7 +14,7 @@ public class Main {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        String program = "graph g {\n" + "A -- B \n" + "B -- C -- D -> E \n" + "}";
+        String program = "graph g {\n" + "A -- B -- F \n" + "B -- C -- D -> E \n A -- X \n B -- Y \n A -- Z\n" + "}";
         var stream = CharStreams.fromString(program);
         var lexer = new DungeonDSLLexer(stream);
 
