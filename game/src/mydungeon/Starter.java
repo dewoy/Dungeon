@@ -57,7 +57,7 @@ public class Starter extends Game {
     @Override
     protected void setup() {
         dslInterpreter = new DSLInterpreter();
-        QuestConfig config = loadConfig();
+        QuestConfig config = (QuestConfig) loadConfig();
 
         clevel = new CollisionMap();
         monster = new ArrayList<>();
@@ -160,7 +160,7 @@ public class Starter extends Game {
         }
     }
 
-    private QuestConfig loadConfig() {
+    private Object loadConfig() {
         return dslInterpreter.getQuestConfig(readInFile());
     }
 
