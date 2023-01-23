@@ -12,7 +12,7 @@ import tools.Constants;
 public class RadiusWalk implements IIdleAI {
     private final float radius;
     private GraphPath<Tile> path;
-    private final int breakTime = Constants.FRAME_RATE * 5;
+    private final int breakTime = Constants.FRAME_RATE * 2;
     private int currentBreak = 0;
 
     /**

@@ -1,5 +1,6 @@
 package ecs.systems;
 
+import demo.Fireball;
 import ecs.components.AnimationComponent;
 import ecs.components.PositionComponent;
 import ecs.components.VelocityComponent;
@@ -29,8 +30,16 @@ public class VelocitySystem extends ECS_System {
                     if (ECS.currentLevel.getTileAt(newPosition.toCoordinate()).isAccessible()) {
                         position.setPosition(newPosition);
                         movementAnimation(entity);
-                        velocity.setY(0);
-                        velocity.setX(0);
+                        if(!(entity instanceof Fireball)){
+                            velocity.setY(0);
+                            velocity.setX(0);
+                        }
+
+
+                    }
+                    else {
+                        if(entity instanceof Fireball)
+                            ECS.entitiestoRemove.add(entity);
                     }
                 }
             }

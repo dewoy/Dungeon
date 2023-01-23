@@ -8,16 +8,19 @@ public class Skill {
 
     private Method method;
     private boolean active;
+
+    public int key;
     private Animation animation;
 
     /**
      * @param method Method with the logic of this skill
      * @param animation Animation of this skill
      */
-    public Skill(Method method, Animation animation) {
+    public Skill(Method method, Animation animation, int key) {
         this.method = method;
         this.animation = animation;
         active = true;
+        this.key = key;
     }
 
     /**
