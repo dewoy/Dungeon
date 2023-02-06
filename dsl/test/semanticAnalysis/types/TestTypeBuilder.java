@@ -6,6 +6,9 @@ import dslToGame.graph.Graph;
 import interpreter.mockECS.ExternalType;
 import interpreter.mockECS.ExternalTypeBuilderMultiParam;
 import java.lang.reflect.InvocationTargetException;
+
+import interpreter.mockECS.ExternalType;
+import interpreter.mockECS.ExternalTypeBuilderMultiParam;
 import org.junit.Test;
 import semanticAnalysis.Scope;
 import semanticAnalysis.Symbol;
