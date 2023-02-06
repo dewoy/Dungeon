@@ -51,4 +51,9 @@ public class AggregateValue extends Value {
     public Set<Map.Entry<String, Value>> getValueSet() {
         return this.getMemorySpace().getValueSet();
     }
+
+    @Override
+    public Object clone() {
+        return this;
+    }
 }
