@@ -3,8 +3,6 @@ package semanticAnalysis.types;
 import java.lang.reflect.Method;
 import semanticAnalysis.IScope;
 
-import java.lang.reflect.Method;
-
 public class AggregateTypeAdapter extends AggregateType {
 
     final Method builderMethod;
