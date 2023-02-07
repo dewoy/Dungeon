@@ -12,7 +12,6 @@ import java.io.PrintStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import parser.AST.Node;
 import runtime.*;
@@ -387,9 +386,10 @@ public class TestDSLInterpreter {
         var externalComponentType =
                 env.getTypeBuilder()
                         .createTypeFromClass(Scope.NULL, TestComponentWithExternalType.class);
+        var externalType = env.getTypeBuilder().createTypeFromClass(Scope.NULL, ExternalType.class);
         env.loadTypes(
                 new semanticAnalysis.types.IType[] {
-                    entityType, testCompType, externalComponentType
+                    entityType, testCompType, externalComponentType, externalType
                 });
 
         SymbolTableParser symbolTableParser = new SymbolTableParser();

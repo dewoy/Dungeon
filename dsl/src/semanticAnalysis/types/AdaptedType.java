@@ -2,13 +2,12 @@ package semanticAnalysis.types;
 
 import java.lang.reflect.Method;
 import semanticAnalysis.IScope;
+import semanticAnalysis.Symbol;
 
 /** This is used to adapt a type, which only requires a single parameter for construction */
-public class AdaptedType implements IType {
-    final String name;
+public class AdaptedType extends Symbol implements IType {
     final Class<?> originType;
     final BuiltInType buildParameterType;
-    final IScope parentScope;
 
     // TODO: this is only a temporary solution
     final Method builderMethod;
@@ -28,7 +27,7 @@ public class AdaptedType implements IType {
     }
 
     public IScope getParentScope() {
-        return parentScope;
+        return this.scope;
     }
 
     public Class<?> getOriginType() {
@@ -45,8 +44,7 @@ public class AdaptedType implements IType {
             Class<?> originType,
             BuiltInType buildParameterType,
             Method builderMethod) {
-        this.name = name;
-        this.parentScope = parentScope;
+        super(name, parentScope, null);
         this.originType = originType;
         this.buildParameterType = buildParameterType;
         this.builderMethod = builderMethod;
