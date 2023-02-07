@@ -7,8 +7,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
 import runtime.AggregateValue;
 import runtime.IMemorySpace;
 import runtime.Value;
@@ -157,8 +155,12 @@ public class TypeInstantiator {
                             var method = adaptedType.getBuilderMethod();
 
                             internalValue = method.invoke(null, internalValue);
-                        } else if (fieldValue.getDataType().getTypeKind().equals(IType.Kind.AggregateAdapted)) {
-                            // call builder -> store values from memory space in order of parameters of builder-method
+                        } else if (fieldValue
+                                .getDataType()
+                                .getTypeKind()
+                                .equals(IType.Kind.AggregateAdapted)) {
+                            // call builder -> store values from memory space in order of parameters
+                            // of builder-method
                             var adaptedType = (AggregateTypeAdapter) fieldValue.getDataType();
                             var method = adaptedType.getBuilderMethod();
                             var aggregateFieldValue = (AggregateValue) fieldValue;
@@ -166,7 +168,8 @@ public class TypeInstantiator {
                             var parameters = new ArrayList<>(method.getParameterCount());
                             for (var parameter : method.getParameters()) {
                                 var memberName = TypeBuilder.getDSLName(parameter);
-                                var memberValue = aggregateFieldValue.getMemorySpace().resolve(memberName);
+                                var memberValue =
+                                        aggregateFieldValue.getMemorySpace().resolve(memberName);
                                 var internalObject = memberValue.getInternalObject();
                                 parameters.add(internalObject);
                             }

@@ -259,7 +259,8 @@ public class SymbolTableParser implements AstVisitor<Void> {
         IType membersType;
         String valueName = node.getIdName();
 
-        // TODO: for an anonymous object (inline defined aggregate value), the memberSymbol will be Symbol.NULL
+        // TODO: for an anonymous object (inline defined aggregate value), the memberSymbol will be
+        // Symbol.NULL
         //  could just resolve the name as a datatype and resolve any member in it..
         //  but this is not really clean. Should make this explicit at a higher level
 
