@@ -13,7 +13,7 @@ import semanticAnalysis.types.IType;
 public class Value implements IClonable {
     public static Value NONE = new Value(null, null, false);
 
-    protected final IType dataType;
+    protected IType dataType;
     protected Object value;
     protected final boolean isMutable;
     protected boolean dirty;
@@ -49,6 +49,10 @@ public class Value implements IClonable {
      */
     public IType getDataType() {
         return dataType;
+    }
+
+    public void setDataType(IType type) {
+        this.dataType = type;
     }
 
     /**
