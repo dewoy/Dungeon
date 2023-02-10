@@ -1,14 +1,5 @@
 # Überblick: Wie funktioniert die Interpretation allgemein
 
-- grober Ablauf:
-  - Lexing & Parsing: ANTLR
-  - Konvertierung in AST
-  - Erzeugen von Typumgebung (IEnvironment)
-  - Semantische Analyse
-    - Typebinding
-    - Variablebinding
-    - Resolver-Walk
-    - Functions-Calls resolven
   - Initialisierung der Laufzeit
     - Laden von IEnvironment in RuntimeEnvironment (enthält zusätzlich
       Prototypen)
