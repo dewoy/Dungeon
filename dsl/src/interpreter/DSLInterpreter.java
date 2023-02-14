@@ -106,6 +106,7 @@ public class DSLInterpreter implements AstVisitor<Object> {
             var rhsValue = (Value) propertyDefNode.getStmtNode().accept(this);
 
             // TODO: this fails for adapted types
+            //  ...but does it?
             var propertySymbol = symbolTable().getSymbolsForAstNode(propDef).get(0);
             Value value = new Value(propertySymbol.getDataType(), rhsValue.getInternalObject());
 

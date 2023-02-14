@@ -88,6 +88,7 @@ public class SymbolTable {
      * @param node The AST node
      * @return The Symbol referenced by node, or Symbol.NULL, if no Symbol could be found
      */
+    // TODO: make this return a single Symbol
     public ArrayList<Symbol> getSymbolsForAstNode(Node node) {
         if (!astNodeSymbolRelation.containsKey(node.getIdx())) {
             // TODO: just empty list?
@@ -107,6 +108,9 @@ public class SymbolTable {
                 //  multiple AST-Nodes
                 returnList.add(symbol);
             }
+        }
+        if (returnList.size() > 1) {
+            throw new RuntimeException("wtf");
         }
         return returnList;
     }
