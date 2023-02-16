@@ -24,10 +24,7 @@ public class Hero extends Entity {
         setupAnimationComponent();
 
         SkillComponent sk = new SkillComponent(this);
-        sk.addSkill(Fireball.FireballLEFT(this));
-        sk.addSkill(Fireball.FireballRight(this));
-        sk.addSkill(Fireball.FireballUp(this));
-        sk.addSkill(Fireball.FireballDown(this));
+        sk.addSkill(Fireball.Fireball(this));
     }
 
     private void setupAnimationComponent() {
@@ -35,7 +32,6 @@ public class Hero extends Entity {
         Animation idleLeft = AnimationBuilder.buildAnimation("knight/idleLeft");
         Animation moveRight = AnimationBuilder.buildAnimation("knight/runRight");
         Animation moveLeft = AnimationBuilder.buildAnimation("knight/runLeft");
-        ;
 
         new AnimationComponent(this, idleLeft, idleRight);
 

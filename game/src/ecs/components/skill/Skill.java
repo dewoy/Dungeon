@@ -1,5 +1,6 @@
 package ecs.components.skill;
 
+import com.badlogic.gdx.Gdx;
 import graphic.Animation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
