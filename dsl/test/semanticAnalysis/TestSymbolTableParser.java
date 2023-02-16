@@ -223,12 +223,11 @@ public class TestSymbolTableParser {
         Assert.assertEquals(levelGraphPropertySymbol, symbolForPropertyIdNode);
     }
 
-
     /** Test, if a native function call is correctly resolved */
     @Test
     public void funcDef() {
         String program =
-            """
+                """
             fn test_func(int param1, float param2, string param3) -> int {
                 print(param1);
             }
@@ -237,7 +236,8 @@ public class TestSymbolTableParser {
         var ast = Helpers.getASTFromString(program);
         var symtableResult = Helpers.getSymtableForAST(ast);
 
-        var funcSymbol = (FunctionSymbol)symtableResult.symbolTable.globalScope.resolve("test_func");
+        var funcSymbol =
+                (FunctionSymbol) symtableResult.symbolTable.globalScope.resolve("test_func");
         Assert.assertEquals("test_func", funcSymbol.getName());
         Assert.assertEquals(BuiltInType.intType, funcSymbol.getDataType());
         Assert.assertEquals(ICallable.Type.UserDefined, funcSymbol.getCallableType());
@@ -249,7 +249,7 @@ public class TestSymbolTableParser {
     @Test
     public void resolveParameterInFunctionBody() {
         String program =
-            """
+                """
             fn test_func(int param1, float param2, string param3) -> int {
                 print(param1);
             }
@@ -266,7 +266,7 @@ public class TestSymbolTableParser {
 
         var symbolForParam1 = symtableResult.symbolTable.getSymbolsForAstNode(firstParam).get(0);
         var funcDef = symtableResult.symbolTable.globalScope.resolve("test_func");
-        var parameterSymbolFromFunctionSymbol = ((FunctionSymbol)funcDef).resolve("param1");
+        var parameterSymbolFromFunctionSymbol = ((FunctionSymbol) funcDef).resolve("param1");
         Assert.assertEquals(parameterSymbolFromFunctionSymbol, symbolForParam1);
     }
 }
