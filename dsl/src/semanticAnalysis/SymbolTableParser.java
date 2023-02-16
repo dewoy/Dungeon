@@ -28,6 +28,7 @@ import parser.AST.*;
 // CHECKSTYLE:ON: AvoidStarImport
 import runtime.IEvironment;
 import semanticAnalysis.types.AggregateType;
+import semanticAnalysis.types.BuiltInType;
 import semanticAnalysis.types.IType;
 import semanticAnalysis.types.TypeBinder;
 
@@ -364,7 +365,7 @@ public class SymbolTableParser implements AstVisitor<Void> {
                     "Identifier with name " + funcName + " is already bound in global scope!");
         } else {
             // resolve return value (if one was defined)
-            IType returnType = null;
+            IType returnType = BuiltInType.noType;
             if (node.getRetTypeId() != Node.NONE) {
                 String returnTypeName = node.getRetTypeName();
                 returnType = resolveType(returnTypeName);
