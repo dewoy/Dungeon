@@ -4,7 +4,6 @@ import interpreter.DSLInterpreter;
 import java.util.List;
 import parser.AST.Node;
 import semanticAnalysis.types.FunctionType;
-import semanticAnalysis.types.IType;
 
 public class FunctionSymbol extends ScopedSymbol implements ICallable {
 
@@ -13,7 +12,8 @@ public class FunctionSymbol extends ScopedSymbol implements ICallable {
     /**
      * @param astRootNode
      */
-    public FunctionSymbol(String name, IScope parentScope, Node astRootNode, FunctionType functionType) {
+    public FunctionSymbol(
+            String name, IScope parentScope, Node astRootNode, FunctionType functionType) {
         super(name, parentScope, functionType);
 
         this.astRootNode = astRootNode;
