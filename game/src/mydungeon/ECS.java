@@ -17,6 +17,7 @@ import ecs.entities.Entity;
 import ecs.entities.Hero;
 import ecs.entities.Monster;
 import ecs.systems.*;
+import graphic.DungeonCamera;
 import interpreter.DSLInterpreter;
 import java.util.*;
 import level.LevelAPI;
@@ -38,7 +39,7 @@ public class ECS extends Game {
     /** List of all Systems in the ECS */
     public static SystemController systems;
 
-
+    public static DungeonCamera dungeoncamera;
     public static ILevel currentLevel;
 
     private PositionComponent heroPositionComponent;
@@ -58,7 +59,7 @@ public class ECS extends Game {
         new DrawSystem(painter);
         new KeyboardSystem();
         new AISystem();
-
+        dungeoncamera=camera;
         screenController = new ScreenController(batch);
         controller.add(screenController);
     }
@@ -122,6 +123,8 @@ public class ECS extends Game {
         // TODO: when calling this before currentLevel is set, the default ctor of PositionComponent
         // triggers NullPointerException
     }
+
+
 
     /** Toggle between pause and run */
     public static void togglePause() {
