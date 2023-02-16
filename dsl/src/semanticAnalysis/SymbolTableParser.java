@@ -135,14 +135,7 @@ public class SymbolTableParser implements AstVisitor<Void> {
 
         while (symbol.equals(Symbol.NULL) && stackIterator.hasPrevious()) {
             scope = stackIterator.previous();
-            if (scope instanceof AggregateType) {
-                // for testing
-                symbol = scope.resolve(name);
-            }
-            if (symbol.equals(Symbol.NULL)) {
-                scope = stackIterator.previous();
-                symbol = scope.resolve(name);
-            }
+            symbol = scope.resolve(name);
         }
         return symbol;
     }
