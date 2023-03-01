@@ -1,14 +1,52 @@
-Toter Code:
+
+------------------------------------
+|Package: ecs->componets->ai->fight|
+-----------------------------------
+Klasse: MeleeAI (selbst nicht verwendet)
+Zeile 25 Constructor dieser Klasse (keine Verwendung)
+
+
+------------------------------------
+|Package: ecs->componets->ai->idle|
+-----------------------------------
+Klasse: PatrouilleWalk (selbst nicht verwendet)
+Zeile 52 Constructor dieser Klasse (keine Verwendung)
+
+Klasse: StaticRadiusWalk (selbst nicht verwendet)
+Zeile 29 Constructor dieser Klasse (keine Verwendung)
+
+
+------------------------------------
+|Package: ecs->componets->ai->transition|
+-----------------------------------
+Klasse: AITools
+Zeile 186, 207, 208 (fehlende Parameter Beschreibung)
+
+Methode: (wird nirgends verwendet)
+public static GraphPath<Tile> calculatePathToHero(Entity entity) {return calculatePath(entity, ECS.hero);}
+
+
 -----------------
 |Package: items |
 -----------------
 Abstrakte Klasse: Item
+
 Methoden: (werden nicht verwendet)
 Zeile 83 void setItemType(ItemType itemType) {this.itemType = itemType;}
 Zeile 91 void setInventoryTexture(Animation inventoryTexture) {this.inventoryTexture = inventoryTexture;}
 Zeile 99 void setWorldTexture(Animation worldTexture) {this.worldTexture = worldTexture;}
 Zeile 107 void setItemName(String itemName) {this.itemName = itemName;}
 Zeile 115 public void setDescription(String description) {this.description = description;}
+
+
+-------------------------
+|Package: ecs-> systems |
+-------------------------
+Klasse: CollisionSystem
+
+Zeile 87-88 und Zeile 101-102(fehlende Parameter Beschreibung)
+@param hitbox1
+@param hitbox2
 
 
 -----------------
@@ -47,31 +85,25 @@ Abstrakte Klasse: Quest
 
 Klasse: QuestFactory 
 
+
 ----------------
 |Package: room |
 ----------------
-
 Interface: IRoom
 Zeile 16
 getLevelNode(); (Methode getLevelNode() wird nirgends verwendet)
 
-
 Klasse: Room
 Zeile 22
 Room(Tile[][] layout) {super(layout);} (Constructor 'Room' wird nirgends verwendet)
-
-=> welche Elemente sollen damit aus dem Dungeon hinzugefügt oder entfernt werden? 
 Zeile 41
 addElement(DungeonElement dungeonElement) {elements.add(dungeonElement);} (Methode 'addElement' wird nirgends verwendet)
-
 Zeile 45
 public void removeElement(DungeonElement dungeonElement) {elements.remove(dungeonElement);} (Methode 'removeElement' wird nirgends verwendet)
 
-
-Klasse: RoomGenerator ?!
+Klasse: RoomGenerator 
 Zeile 169
 boolean symmetrical = random.nextFloat() < SYMMETRICAL; (Variable "symmetrical" wird nirgends verwendet)
-
 Zeile 581 - 598 
 Methode: => Kontrollausgaben mit System.out
 printLayout(level.tools.LevelElement[][], level.tools.LevelSize) 
