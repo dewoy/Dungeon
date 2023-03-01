@@ -1,0 +1,77 @@
+Toter Code:
+-----------------
+|Package: items |
+-----------------
+Abstrakte Klasse: Item
+Methoden: (werden nicht verwendet)
+Zeile 83 void setItemType(ItemType itemType) {this.itemType = itemType;}
+Zeile 91 void setInventoryTexture(Animation inventoryTexture) {this.inventoryTexture = inventoryTexture;}
+Zeile 99 void setWorldTexture(Animation worldTexture) {this.worldTexture = worldTexture;}
+Zeile 107 void setItemName(String itemName) {this.itemName = itemName;}
+Zeile 115 public void setDescription(String description) {this.description = description;}
+
+
+-----------------
+|Package: graph |
+-----------------
+Klasse: Edge
+Methode: (wird nicht verwendet)
+Zeile 31 getEdgeType() 
+
+Klasse: Node
+Methode:
+Zeile 46 public boolean addEdge(Edge edge) {return this.edges.add(edge);} (keine Verwendung des Rückgabewertes)
+
+Klasse: PropertyBag
+Methode (keine Verwendung des Rückgabewertes)
+Zeile 21 boolean addProperty(String name, Property attr)...
+
+
+---------------------
+|Package: levelgraph|
+---------------------
+Klasse: GraphLevelGenerator (wird nicht verwendet)?! Möglicherweise Attribute die verwendet werden auslagern
+ 
+Methoden: (werden nicht verwendet)
+Zeile 59 getNodeToLevelNode()
+Zeile 63 getLevelNodeToNode()
+ 
+
+----------------
+|Package: quest| wird noch benötigt
+----------------
+Package enthällt nur Prototypen (alle hier enthaltenen Klassen und Methoden sind unvollständig und werden nirgends verwendet)
+Interface: Evaluateable 
+
+Abstrakte Klasse: Quest 
+
+Klasse: QuestFactory 
+
+----------------
+|Package: room |
+----------------
+
+Interface: IRoom
+Zeile 16
+getLevelNode(); (Methode getLevelNode() wird nirgends verwendet)
+
+
+Klasse: Room
+Zeile 22
+Room(Tile[][] layout) {super(layout);} (Constructor 'Room' wird nirgends verwendet)
+
+=> welche Elemente sollen damit aus dem Dungeon hinzugefügt oder entfernt werden? 
+Zeile 41
+addElement(DungeonElement dungeonElement) {elements.add(dungeonElement);} (Methode 'addElement' wird nirgends verwendet)
+
+Zeile 45
+public void removeElement(DungeonElement dungeonElement) {elements.remove(dungeonElement);} (Methode 'removeElement' wird nirgends verwendet)
+
+
+Klasse: RoomGenerator ?!
+Zeile 169
+boolean symmetrical = random.nextFloat() < SYMMETRICAL; (Variable "symmetrical" wird nirgends verwendet)
+
+Zeile 581 - 598 
+Methode: => Kontrollausgaben mit System.out
+printLayout(level.tools.LevelElement[][], level.tools.LevelSize) 
