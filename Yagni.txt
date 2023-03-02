@@ -44,6 +44,9 @@ Klasse: Skill
 Klasse: HitboxComponent
 102: getCollideMethod (keine Nutzung)
 
+Klasse: VelocityComponent
+47: constructor ungenutzt
+
 
 ------------------------
 |Package: ecs->entities|
