@@ -26,9 +26,23 @@ Methode: (wird nirgends verwendet)
 public static GraphPath<Tile> calculatePathToHero(Entity entity) {return calculatePath(entity, ECS.hero);}
 
 
------------------------------------------
-|Package: ecs->entities->Hero|
------------------------------------------
+---------------------------------
+|Package: ecs->components->skill|
+---------------------------------
+Klasse: Skill
+45: getAnimation (aktuell nicht funktional genutzt, wird in SkillTest in PR #395 aufgegriffen)
+
+
+--------------------------
+|Package: ecs->components|
+--------------------------
+Klasse: HitboxComponent
+102: getCollideMethod (keine Nutzung)
+
+
+------------------------
+|Package: ecs->entities|
+------------------------
 Klasse: Hero
 Methoden:
 41: heroCollision (aktuell nicht genutzt, fällt stark in "wird vielleicht in naher Zukunft benötigt")
