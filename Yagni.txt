@@ -26,6 +26,13 @@ Methode: (wird nirgends verwendet)
 public static GraphPath<Tile> calculatePathToHero(Entity entity) {return calculatePath(entity, ECS.hero);}
 
 
+-----------------------------------------
+|Package: ecs->entities->Hero|
+-----------------------------------------
+Klasse: Hero
+Methoden:
+41: heroCollision (aktuell nicht genutzt, fällt stark in "wird vielleicht in naher Zukunft benötigt")
+
 -----------------
 |Package: items |
 -----------------
