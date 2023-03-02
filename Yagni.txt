@@ -100,6 +100,12 @@ Methoden: (werden nicht verwendet)
 Zeile 59 getNodeToLevelNode()
 Zeile 63 getLevelNodeToNode()
  
+--------------------
+|Package: mydungeon|
+-------------------
+Klasse:ECS
+Zeile 98-102 if-Anweisung kann vereinfacht werden (bereits erledigt)
+
 
 ----------------
 |Package: quest| wird noch benötigt
