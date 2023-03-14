@@ -8,10 +8,11 @@ import ecs.entities.Entity;
 import graphic.Animation;
 import java.util.ArrayList;
 import java.util.List;
+import savegame.ISerializable;
 import starter.Game;
 import tools.Point;
 
-public abstract class Item {
+public abstract class Item implements ISerializable {
 
     public static final List<Item> ITEM_REGISTER = new ArrayList<>();
     public static final List<String> missingTexture = List.of("animation/missingTexture.png");
