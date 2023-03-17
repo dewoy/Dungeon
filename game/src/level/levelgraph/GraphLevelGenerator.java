@@ -1,6 +1,5 @@
 package level.levelgraph;
 
-import dslToGame.ConvertedGraph;
 import dslToGame.graph.Graph;
 import dslToGame.graph.Node;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package dslToGame;
+package level.levelgraph;
 
 import dslToGame.graph.Graph;
 import dslToGame.graph.Node;
