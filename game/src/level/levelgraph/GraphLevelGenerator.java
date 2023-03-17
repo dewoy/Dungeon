@@ -2,6 +2,7 @@ package level.levelgraph;
 
 import dslToGame.graph.Graph;
 import dslToGame.graph.Node;
+import interpreter.DSLInterpreter;
 import java.util.HashMap;
 import level.elements.ILevel;
 import level.generator.IGenerator;
@@ -74,6 +75,7 @@ public class GraphLevelGenerator implements IGenerator {
      */
     public static Graph<String> generateRandomDotGraph() {
         Graph<String> generatedGraph = null;
+        DSLInterpreter interpreter = new DSLInterpreter();
         return generatedGraph;
     }
 }
