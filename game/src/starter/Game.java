@@ -112,6 +112,7 @@ public class Game extends ScreenAdapter implements IOnLevelLoader {
         }
         entitiesToRemove.clear();
         if (isOnEndTile()) levelAPI.loadLevel();
+        if (generator instanceof GraphLevelGenerator) checkDoors();
         if (Gdx.input.isKeyJustPressed(Input.Keys.P)) togglePause();
     }
 
