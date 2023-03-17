@@ -205,6 +205,9 @@ public class Game extends ScreenAdapter implements IOnLevelLoader {
         return false;
     }
 
+    // Check if the player is on a door, if yes: load next room
+    private void checkDoors() {}
+
     private void setupDSLInput() {
         String program =
                 """
