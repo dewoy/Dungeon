@@ -32,8 +32,8 @@ import level.LevelAPI;
 import level.elements.ILevel;
 import level.elements.tile.Tile;
 import level.generator.IGenerator;
-import level.generator.postGeneration.WallGenerator;
 import level.generator.randomwalk.RandomWalkGenerator;
+import level.levelgraph.GraphLevelGenerator;
 import tools.Constants;
 import tools.Point;
 
@@ -88,7 +88,8 @@ public class Game extends ScreenAdapter implements IOnLevelLoader {
                         hero.getComponent(PositionComponent.class)
                                 .orElseThrow(
                                         () -> new MissingComponentException("PositionComponent"));
-        levelAPI = new LevelAPI(batch, painter, new WallGenerator(new RandomWalkGenerator()), this);
+        generator = new GraphLevelGenerator();
+        levelAPI = new LevelAPI(batch, painter, generator, this);
         levelAPI.loadLevel();
 
         new VelocitySystem();
