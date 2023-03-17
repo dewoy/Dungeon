@@ -75,6 +75,7 @@ public class GraphLevelGenerator implements IGenerator {
      */
     public static Graph<String> generateRandomDotGraph() {
         Graph<String> generatedGraph = null;
+        String generatedDSLInput = "";
         DSLInterpreter interpreter = new DSLInterpreter();
         return generatedGraph;
     }
