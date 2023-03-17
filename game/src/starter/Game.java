@@ -30,6 +30,7 @@ import java.util.logging.Logger;
 import level.IOnLevelLoader;
 import level.LevelAPI;
 import level.elements.ILevel;
+import level.elements.tile.DoorTile;
 import level.elements.tile.Tile;
 import level.generator.IGenerator;
 import level.generator.randomwalk.RandomWalkGenerator;
@@ -206,7 +207,17 @@ public class Game extends ScreenAdapter implements IOnLevelLoader {
     }
 
     // Check if the player is on a door, if yes: load next room
-    private void checkDoors() {}
+    private void checkDoors() {
+        Tile currentTile =
+                currentLevel.getTileAt(heroPositionComponent.getPosition().toCoordinate());
+        List<DoorTile> doors = currentLevel.getDoorTiles();
+        for (DoorTile door : doors) {
+            if (currentTile == door) {
+                door.onEntering(hero);
+                levelAPI.setLevel(door.getOtherDoor().getLevel());
+            }
+        }
+    }
 
     private void setupDSLInput() {
         String program =
