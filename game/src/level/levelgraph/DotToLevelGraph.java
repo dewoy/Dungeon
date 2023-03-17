@@ -1,5 +1,6 @@
-package dslToGame;
+package level.levelgraph;
 
+import dslToGame.ConvertedGraph;
 import dslToGame.graph.Edge;
 import dslToGame.graph.Graph;
 import dslToGame.graph.Node;
