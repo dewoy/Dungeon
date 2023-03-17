@@ -1,5 +1,6 @@
 package level.levelgraph;
 
+import dslToGame.QuestConfig;
 import dslToGame.graph.Graph;
 import dslToGame.graph.Node;
 import interpreter.DSLInterpreter;
@@ -74,9 +75,8 @@ public class GraphLevelGenerator implements IGenerator {
      * @return the generated graph
      */
     public static Graph<String> generateRandomDotGraph() {
-        Graph<String> generatedGraph = null;
         String generatedDSLInput = "";
         DSLInterpreter interpreter = new DSLInterpreter();
-        return generatedGraph;
+        return ((QuestConfig) interpreter.getQuestConfig(generatedDSLInput)).levelGraph();
     }
 }
