@@ -75,7 +75,21 @@ public class GraphLevelGenerator implements IGenerator {
      * @return the generated graph
      */
     public static Graph<String> generateRandomDotGraph() {
-        String generatedDSLInput = "";
+        String generatedDSLInput =
+                "graph g {\n"
+                        + "                        G -- T -- Q -- D\n"
+                        + "                        Q -- F\n"
+                        + "                        T -- X -- S\n"
+                        + "                        G -- W -- E\n"
+                        + "                        W -- C -- U\n"
+                        + "                        C -- N\n"
+                        + "                  }\n"
+                        + "            quest_config c {\n"
+                        + "                level_graph: g,\n"
+                        + "                quest_points: 10,\n"
+                        + "                quest_desc: \"Das Passwort findest du in der Breitensuche\",\n"
+                        + "                password: \"GTWQXECDFSUN\"\n"
+                        + "            }";
         DSLInterpreter interpreter = new DSLInterpreter();
         return ((QuestConfig) interpreter.getQuestConfig(generatedDSLInput)).levelGraph();
     }
