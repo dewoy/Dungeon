@@ -25,6 +25,11 @@ public class GraphLevelGenerator implements IGenerator {
         setGraph(graph);
     }
 
+    /** Generate the GraphLevel from a random graph */
+    public GraphLevelGenerator() {
+        this(generateRandomDotGraph());
+    }
+
     /**
      * The Root-Node defines the graph
      *
