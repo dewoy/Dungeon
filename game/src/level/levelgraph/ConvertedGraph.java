@@ -3,7 +3,6 @@ package level.levelgraph;
 import dslToGame.graph.Graph;
 import dslToGame.graph.Node;
 import java.util.HashMap;
-import level.levelgraph.LevelNode;
 
 public record ConvertedGraph(
         Graph<String> graph,

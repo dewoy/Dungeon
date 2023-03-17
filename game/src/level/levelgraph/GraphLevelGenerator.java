@@ -61,4 +61,14 @@ public class GraphLevelGenerator implements IGenerator {
     public HashMap<LevelNode, Node<String>> getLevelNodeToNode() {
         return levelNodeToNode;
     }
+
+    /**
+     * Generates a graph that can be used as a level, in the DOT-like representation of the DSL.
+     *
+     * @return the generated graph
+     */
+    public static Graph<String> generateRandomDotGraph() {
+        Graph<String> generatedGraph = null;
+        return generatedGraph;
+    }
 }
