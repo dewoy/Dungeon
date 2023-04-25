@@ -1,4 +1,11 @@
 package ecs.entities;
 
-public class Goblin {
+import ecs.components.PositionComponent;
+
+public class Goblin extends Entity{
+    public Goblin(){
+        super();
+        new PositionComponent(this);
+
+    }
 }
